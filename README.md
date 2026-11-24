@@ -90,3 +90,38 @@ The accelerator uses offsets `0x00` through `0x1c` from the Caravel
 user-project base address (`0x3000_0000` in management firmware). The included
 full-harness test writes an SRAM coefficient, reads it back, runs a COPY command,
 and verifies the copied coefficient.
+
+## My Contributions — Dilithium NTT Caravel ASIC
+
+I contributed to the integration, physical implementation, and verification of a Dilithium NTT accelerator within the Caravel harness using the SkyWater SKY130 process.
+
+### Technical Contributions
+
+- Integrated the NTT engine, Wishbone bridge, SRAM, and supporting macros into `user_project_wrapper`.
+- Developed and improved the `caravel3` implementation and collaborated on the final `haseeb-repeater` submission.
+- Debugged OpenLane hardening, placement and routing, LVS, DRC, STA, maximum-slew violations, and GitHub Actions workflows.
+- Addressed polysilicon and diffusion/tap density violations using SKY130 fill and decap cells.
+- Investigated OpenRAM FEOL errors and evaluated foundry-waivable memory-core violations.
+- Performed local Caravel verification and ChipFoundry prechecks.
+- Managed large GDS artifacts using Git LFS and verified the integrity of the final wrapper GDS.
+- Coordinated the final CI2609 submission and verified that ChipFoundry received the correct layout.
+
+### Final ASIC Submission
+
+| Parameter | Details |
+|---|---|
+| Technology | SkyWater SKY130 |
+| Design | Dilithium NTT Accelerator |
+| Harness | Caravel |
+| Design Flow | OpenLane |
+| Submission | CI2609 |
+| ChipFoundry Status | Confirmed |
+| Final GDS Size | 296,628,046 bytes |
+
+**Final GDS SHA-256:**
+
+`268870617370937c35937ff3d1cd27186c718e128b9f9aa1cdcaebf9fee81560`
+
+The project reached ChipFoundry's **Confirmed** state, with the remaining `MR_licon.SP.6` and `MR_mcon.CON.10` memory-core violations accepted as waivable.
+
+**Final Project:** [Dilithium NTT Caravel — CI2609](https://platform.chipfoundry.io/projects/ec2d7849-78e8-4704-82f6-1a58c6c21562)
